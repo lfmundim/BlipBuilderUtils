@@ -10,10 +10,9 @@ function run(bands){
             itemType:"application/vnd.lime.document-select+json",
             items:[{}]
     }
-    var itemCounter = 0;
     for(band in bandTokens){
-        if(tokens.length < 3) break;
         var tokens = bandTokens[band].split("|");
+        if(tokens.length < 3) continue;
         var newItem = {
             "header":
             {
