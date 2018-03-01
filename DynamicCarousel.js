@@ -1,33 +1,19 @@
 /* 
-O Extras deve ter o seguinte formato:
-{ 
-        "bands":[
-            "Whatever|Hora1|Palco1|PicUrl", 
-            "test|Hora2|Palco2|PicUrl"
-        ]
-};
+O extras.bands deve ter o seguinte formato: Banda|Horario|Palco|Imagem, Banda|Horario|Palco|Imagem etc
 
-Passar para o JS o contact.extras e usar a function acima
+Passar para o JS o contact.extras.bands e usar a function abaixo
 */
-function run(){
-    // var teste = {
-    //     "bands":[
-    //         "Whatever|Hora1|PalcoA|https://avatars2.githubusercontent.com/u/4944728?s=400&v=4", 
-    //         "test|Hora2|PalcoB|https://avatars2.githubusercontent.com/u/15164001?s=460&v=4"
-    //     ]
-    // };
-    // var extrasStr = JSON.stringify(teste);
-    var extrasStr = JSON.stringify(contact.extras);
-    var extrasObj = JSON.parse(extrasStr);
-    var bands = extrasObj.bands;
-    
+function run(bands){
+    // var teste = 'Red Hot Chili Peppers|21h10|Budweiser, Spoon|16h20|Budweiser|http://cdn.shopify.com/s/files/1/2597/4406/t/3/assets/logo-image-file.png?9234837408454138220,';
+    var bandTokens = bands.split(",");    
     var carousel = { 
             itemType:"application/vnd.lime.document-select+json",
             items:[{}]
     }
     var itemCounter = 0;
-    for(band in bands){
-        var tokens = bands[band].split("|");
+    for(band in bandTokens){
+        if(tokens.length < 3) break;
+        var tokens = bandTokens[band].split("|");
         var newItem = {
             "header":
             {
@@ -50,6 +36,6 @@ function run(){
         };  
         carousel.items.push(newItem); 
     };
-    // document.write(JSON.stringify(carousel));
-    return JSON.stringify(carousel);
+    //  document.write(JSON.stringify(carousel));
+  return JSON.stringify(carousel);        
 }
