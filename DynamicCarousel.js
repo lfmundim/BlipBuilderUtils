@@ -1,15 +1,26 @@
-function run(){
-    var teste = {
+/* 
+O Extras deve ter o seguinte formato:
+{ 
         "bands":[
-            "Whatever|Hora1|PalcoA|https://avatars2.githubusercontent.com/u/4944728?s=400&v=4", 
-            "test|Hora2|PalcoB|https://avatars2.githubusercontent.com/u/15164001?s=460&v=4"
+            "Whatever|Hora1|Palco1|PicUrl", 
+            "test|Hora2|Palco2|PicUrl"
         ]
-    };
-    // var extrasStr = JSON.stringify(contact.extras);
-    var extrasStr = JSON.stringify(teste);
+};
+
+Passar para o JS o contact.extras e usar a function acima
+*/
+function run(){
+    // var teste = {
+    //     "bands":[
+    //         "Whatever|Hora1|PalcoA|https://avatars2.githubusercontent.com/u/4944728?s=400&v=4", 
+    //         "test|Hora2|PalcoB|https://avatars2.githubusercontent.com/u/15164001?s=460&v=4"
+    //     ]
+    // };
+    // var extrasStr = JSON.stringify(teste);
+    var extrasStr = JSON.stringify(contact.extras);
     var extrasObj = JSON.parse(extrasStr);
     var bands = extrasObj.bands;
-    var first = true;
+    
     var carousel = { 
             itemType:"application/vnd.lime.document-select+json",
             items:[{}]
@@ -42,30 +53,3 @@ function run(){
     // document.write(JSON.stringify(carousel));
     return JSON.stringify(carousel);
 }
-
-
-// var bandsJson = { 
-//     "bands":["Whatever"],
-//     "times":{"test":2,"Whatever":"13:40"}
-// };
-// var contactStr = JSON.stringify(bandsJson);
-// var contactObj = JSON.parse(contactStr);
-// var bands = contactObj.bands;
-//   var times = contactObj.time;
-// for(band in bands){
-// document.write("<br>"+bands[band]+times[bands[band]]);
-// };
-
-/* 
-O Extras deve ter o seguinte formato:
-{ 
-    "extras":{
-        "bands":[
-            "Whatever|Hora1", 
-            "test|Hora2"
-        ]
-    }
-};
-
-Passar para o JS o contact.extras e usar a function acima
-*/
