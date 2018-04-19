@@ -4,7 +4,7 @@ Deve receber o cpf extraído (e padLeft-ed com 0's até ter 11 caracteres) e sem
 
 function run(cpf){
     var cpfTokens = cpf.split('').map(Number);
-    if(Set(cpfTokens).size == 1) return false;
+    if(Set(cpfTokens).size == 1) return false.toString();
     var digits = cpfTokens.slice(0,9); //9 digits
     var verifier = cpfTokens.slice(9,11); //verifier 2 digits
     var firstSum = 0;
