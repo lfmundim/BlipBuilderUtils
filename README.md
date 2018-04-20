@@ -1,4 +1,5 @@
 # BlipBuilderUtils
+A collection of useful JS codes to use on [BLiP's](https://preview.blip.ai) (chatbot) *Builder* tool.
 
 ## carousel.json
 It's an example (from docs.blip.ai) of the .json of a Carousel Media Type
